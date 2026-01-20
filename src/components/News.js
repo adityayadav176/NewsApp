@@ -64,3 +64,5 @@ export class News extends Component {
 }
 
 export default News
+
+           
