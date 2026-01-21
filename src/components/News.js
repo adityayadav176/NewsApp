@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './spinner.js'
 import PropTypes from 'prop-types'
-vgds
+
 
 export class News extends Component {
   static defaultProps = {
