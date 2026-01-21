@@ -4,6 +4,7 @@ import Spinner from './spinner.js'
 import PropTypes from 'prop-types'
 
 
+
 export class News extends Component {
   static defaultProps = {
     country:"us",
