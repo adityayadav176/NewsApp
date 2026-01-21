@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Spinner from './spinner.js'
+asd fasd
 
 
 export class NewsItem extends Component {
