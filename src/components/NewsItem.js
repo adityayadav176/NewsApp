@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Spinner from './spinner.js'
-
+        
 
 export class NewsItem extends Component {
   render() {
