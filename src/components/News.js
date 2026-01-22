@@ -25,40 +25,25 @@ export class News extends Component {
     }
 
     handleNextClick = async () =>{
-      if( this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
-
-      }else{
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b1397969e723419ba6608a025a31e06f&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-        
-        this.setState({loading:true});
-        let data = await fetch(url);
-        let response = await data.json()
-        this.setState({articles: response.articles,
-          page:this.state.page+1,
-          loading:false
-        })}
-      console.log("Next");
+       this.setState({page: this.state.page + 1});
+       this.updateNews()
     }
 
 
      handlePrevClick = async () =>{
-     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b1397969e723419ba6608a025a31e06f&page=${this.state.page - 1}&PageSize=${this.props.pageSize}`;
-      this.setState({loading:true});
-        let data = await fetch(url);
-        let response = await data.json()
-        this.setState({articles: response.articles,
-          page:this.state.page-1,
-          loading:false
-        })
+    this.setState({page: this.state.page - 1});
+    this.updateNews()
     }
-
-
-    async componentDidMount (){
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b1397969e723419ba6608a025a31e06f&page=1&pagesize=${this.props.pageSize}`
+     async updateNews(){
+       const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b1397969e723419ba6608a025a31e06f&page=${this.state.page}&pagesize=${this.props.pageSize}`
       this.setState({loading:true});
       let data = await fetch(url);
       let response = await data.json()
       this.setState({articles: response.articles,totalResults: response.totalResults, loading:false})
+    }
+
+    async componentDidMount (){
+     this.updateNews()
     }
   render() {
     return (
