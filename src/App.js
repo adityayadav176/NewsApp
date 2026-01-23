@@ -8,14 +8,19 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
 
 export default class App extends Component {
-  pageSize = 15;
+  pageSize = 6;
   render() {
     return (
       <Router>
         <NavBar />
-
+ <LoadingBar
+        color="#f11946"
+        progress={10}
+        // onLoaderFinished={() => setProgress(0)}
+      />
         <Routes>
           <Route
             path="/business"
